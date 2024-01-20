@@ -108,7 +108,11 @@ for idx in p:
     print('Correct Answer:', f[idx]['ans'])
     for d in f:
         if d['proj'] == pr+str(dmap[pr][idx]):
-            bug_entry = {"bug_id": dmap[pr][idx], "ground_truth": f[idx]['ans'], "methods": []}
+            ans_rank = []
+            for x in f[idx]['ans']:
+                m = best_pred.index(x)
+                ans_rank.append(m)
+            bug_entry = {"bug_id": dmap[pr][idx], "ground_truths": f[idx]['ans'],"ground_truths_rank": ans_rank, "methods": []}
             for method, rank in d['methods'].items():
                 method_entry = {
                     "method_signature": method,
