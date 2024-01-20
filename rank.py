@@ -116,7 +116,8 @@ for idx in p:
             for method, rank in d['methods'].items():
                 method_entry = {
                     "method_signature": method,
-                    "suspicious_rank": score_pred.get(rank, 0)  # Default 0 if not found
+                    "suspicious_rank": score_pred.get(rank, 0),
+                    "method_id": rank  # Default 0 if not found
                 }
                 bug_entry["methods"].append(method_entry)
             project_entry["bugs"].append(bug_entry)
