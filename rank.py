@@ -113,7 +113,7 @@ for idx in p:
             ans_rank = []
             for x in f[idx]['ans']:
                 m = best_pred.index(x)
-                rank_dic[x] = m
+                rank_dic[x] = m + 1
             bug_entry = {"bug_id": dmap[pr][idx], "ground_truths_with_rank": rank_dic, "methods": []}
             for method, rank in d['methods'].items():
                 method_entry = {
